@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "f0a086d3-60ef-4b03-9405-9ede3f12b5f6",
+		"name": "newAPI Collection",
+		"description": "A simple API to illustrate OpenAPI concepts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "21162437-f0a086d3-60ef-4b03-9405-9ede3f12b5f6"
+	},
+	"item": [
+		{
+			"name": "artists",
+			"item": [
+				{
+					"name": "Returns a list of artists",
+					"id": "551364c6-eda3-4164-a43c-f22a4e2b32d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/artists?limit=<integer>&offset=<integer>",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"artists"
+							],
+							"query": [
+								{
+									"description": "Limits the number of items on a page",
+									"key": "limit",
+									"value": "<integer>"
+								},
+								{
+									"description": "Specifies the page number of the artists to be displayed",
+									"key": "offset",
+									"value": "<integer>"
+								}
+							]
+						},
+						"description": "Returns a list of artists"
+					},
+					"response": [
+						{
+							"id": "9f2edcd6-bda0-45a7-bcc2-01161488bbf5",
+							"name": "Successfully returned a list of artists",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/artists?limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"artists"
+									],
+									"query": [
+										{
+											"description": "Limits the number of items on a page",
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"description": "Specifies the page number of the artists to be displayed",
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"username\": \"<string>\",\n    \"artist_name\": \"<string>\",\n    \"artist_genre\": \"<string>\",\n    \"albums_recorded\": \"<integer>\"\n  },\n  {\n    \"username\": \"<string>\",\n    \"artist_name\": \"<string>\",\n    \"artist_genre\": \"<string>\",\n    \"albums_recorded\": \"<integer>\"\n  }\n]"
+						},
+						{
+							"id": "cc007060-2e98-4a41-8a41-96f55524c9f4",
+							"name": "Invalid request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: basic",
+										"key": "Authorization",
+										"value": "Basic <credentials>"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/artists?limit=<integer>&offset=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"artists"
+									],
+									"query": [
+										{
+											"description": "Limits the number of items on a page",
+											"key": "limit",
+											"value": "<integer>"
+										},
+										{
+											"description": "Specifies the page number of the artists to be displayed",
+											"key": "offset",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"message\": \"<string>\"\n}"
+						}
+					]
+				}
+			],
+			"id": "199758a5-048f-479e-912e-87d3df0f4269"
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "{{basicAuthUsername}}",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "{{basicAuthPassword}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "b92b82fb-b5c6-40bc-9571-52c7c43e3f1b",
+			"key": "baseUrl",
+			"value": "https://example.io/v1"
+		}
+	]
+}
